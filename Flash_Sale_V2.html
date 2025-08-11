@@ -1,0 +1,234 @@
+<style>
+  /* --- Google Font Import --- */
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap");
+
+  /* --- Sticky Banner Styles --- */
+  .sticky-banner {
+    /* Using a more specific selector to avoid theme conflicts */
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background-color: #2d2d2d !important; /* Dark background */
+    color: #f5f5f5 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 10px 40px !important; /* Reduced vertical padding, space for close buttons */
+    box-sizing: border-box !important;
+    z-index: 1000 !important; /* Ensure it's on top, but can be adjusted if needed */
+    font-family: "Montserrat", sans-serif;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease;
+  }
+
+  /* Class to hide the banner */
+  .sticky-banner.hidden {
+    transform: translateY(100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .banner-content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    width: 100%;
+  }
+
+  /* --- Text Styling --- */
+  .banner-text-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns "Flash sale" and "UP TO..." to the left */
+  }
+
+  .flash-sale-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin: 0;
+    white-space: nowrap;
+    line-height: 1.2;
+  }
+
+  .flash-sale-title span {
+    color: #ff9800; /* Lightning bolt color */
+    font-size: 1.1rem;
+    vertical-align: middle;
+  }
+
+  .discount-subtitle {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: #bdbdbd;
+    margin: 0;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+
+  /* --- Timer Styling (to match image) --- */
+  .timer {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .time-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .time-box {
+    /* MODIFICATION: Removed background to match new design */
+    background-color: transparent;
+    color: #ffffff; /* White numbers */
+    font-size: 1.8rem; /* Larger font size */
+    font-weight: 800; /* Bold font */
+    line-height: 1;
+    padding: 0; /* No padding needed */
+    margin-bottom: 2px;
+  }
+
+  .time-label {
+    font-size: 0.6rem;
+    font-weight: 500;
+    color: #bdbdbd;
+    text-transform: uppercase;
+  }
+
+  /* --- Close Button Styling (Moved to Left) --- */
+  .close-btn {
+    position: absolute !important;
+    /* MODIFICATION: Moved to the left side */
+    left: 10px;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: none !important;
+    border: none !important;
+    color: #aaa !important;
+    font-size: 24px !important;
+    font-weight: bold;
+    line-height: 1;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3s ease;
+  }
+
+  .close-btn:hover {
+    color: #fff !important;
+  }
+
+  /* --- Responsive Adjustments --- */
+  @media (max-width: 768px) {
+    .sticky-banner {
+      padding: 15px 15px 15px 45px !important; /* Keep space for left close btn */
+    }
+    .banner-content-wrapper {
+      /* Stack text and timer vertically */
+      flex-direction: column;
+      gap: 10px;
+    }
+    .banner-text-group {
+      align-items: center; /* Center text when stacked */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .time-box {
+      font-size: 1.5rem; /* Slightly smaller numbers for small screens */
+    }
+    .timer {
+      gap: 10px;
+    }
+  }
+</style>
+
+<!-- HTML for the Sticky Countdown Banner -->
+<div class="sticky-banner" id="sticky-sale-banner">
+  <!-- MODIFICATION: Close button is now on the left -->
+  <button class="close-btn" id="close-banner-btn" aria-label="Close Banner">
+    ×
+  </button>
+
+  <div class="banner-content-wrapper">
+    <!-- MODIFICATION: Grouped text for better alignment -->
+    <div class="banner-text-group">
+      <p class="flash-sale-title"><span>⚡</span> Flash sale</p>
+      <p class="discount-subtitle">UP to 15% off</p>
+    </div>
+    <div class="timer">
+      <div class="time-unit">
+        <div class="time-box" id="days">00</div>
+        <span class="time-label">Days</span>
+      </div>
+      <div class="time-unit">
+        <div class="time-box" id="hours">00</div>
+        <span class="time-label">Hours</span>
+      </div>
+      <div class="time-unit">
+        <div class="time-box" id="minutes">00</div>
+        <span class="time-label">Minutes</span>
+      </div>
+      <div class="time-unit">
+        <div class="time-box" id="seconds">00</div>
+        <span class="time-label">Seconds</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript for the Countdown Timer and Close Button -->
+<script>
+  // --- Countdown Timer Logic ---
+
+  // To set the countdown duration, change the value of 'countdownHours'.
+  // Example: For a 3-day (72-hour) sale, set countdownHours to 72.
+  const countdownHours = 72;
+  const countDownDate = new Date().getTime() + countdownHours * 60 * 60 * 1000;
+
+  const daysElem = document.getElementById("days");
+  const hoursElem = document.getElementById("hours");
+  const minutesElem = document.getElementById("minutes");
+  const secondsElem = document.getElementById("seconds");
+
+  const countdownFunction = setInterval(function () {
+    const now = new Date().getTime();
+    const distance = countDownDate - now;
+
+    if (distance < 0) {
+      clearInterval(countdownFunction);
+      // Hide timer and text, show expired message
+      const wrapper = document.querySelector(".banner-content-wrapper");
+      if (wrapper) {
+        wrapper.innerHTML = "<p class='flash-sale-title'>SALE EXPIRED</p>";
+        wrapper.style.justifyContent = "center";
+      }
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    if (daysElem) daysElem.innerHTML = String(days).padStart(2, "0");
+    if (hoursElem) hoursElem.innerHTML = String(hours).padStart(2, "0");
+    if (minutesElem) minutesElem.innerHTML = String(minutes).padStart(2, "0");
+    if (secondsElem) secondsElem.innerHTML = String(seconds).padStart(2, "0");
+  }, 1000);
+
+  // --- Close Button Logic ---
+  const banner = document.getElementById("sticky-sale-banner");
+  const closeBtn = document.getElementById("close-banner-btn");
+
+  if (closeBtn && banner) {
+    closeBtn.addEventListener("click", () => {
+      banner.classList.add("hidden");
+    });
+  }
+</script>
