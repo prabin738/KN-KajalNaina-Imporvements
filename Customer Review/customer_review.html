@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Review Slider</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="review-slider">
+      <div class="slides">
+        <!-- Add your review images here -->
+        <div class="review-slide active">
+          <img src="cusrev1.png" alt="Customer Review 1" />
+        </div>
+        <div class="review-slide">
+          <img src="review1.png" alt="Customer Review 2" />
+        </div>
+        <div class="review-slide">
+          <img src="https://i.imgur.com/gXYmVfW.jpeg" alt="Customer Review 3" />
+        </div>
+        <!-- Add more slides as needed -->
+      </div>
+
+      <!-- Professional Slider Controls -->
+      <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+      <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
