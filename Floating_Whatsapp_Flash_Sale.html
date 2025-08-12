@@ -1,0 +1,294 @@
+<style>
+  /* --- Google Font Import --- */
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap");
+
+  /* --- CSS Variables for Dynamic Positioning --- */
+  :root {
+    --banner-height: 100px; /* Default height, will be adjusted by JS */
+    --whatsapp-bottom-spacing: 20px; /* Initial bottom spacing for WhatsApp icon */
+  }
+
+  /* --- Sticky Banner Styles --- */
+  .sticky-banner {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background-color: #2d2d2d !important;
+    color: #f5f5f5 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 10px 40px !important;
+    box-sizing: border-box !important;
+    z-index: 1000 !important;
+    font-family: "Montserrat", sans-serif;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease;
+  }
+
+  .sticky-banner.hidden {
+    transform: translateY(100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .banner-content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .banner-text-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .flash-sale-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin: 0;
+    white-space: nowrap;
+    line-height: 1.2;
+  }
+
+  .flash-sale-title span {
+    color: #ff9800;
+    font-size: 1.1rem;
+    vertical-align: middle;
+  }
+
+  .discount-subtitle {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: #bdbdbd;
+    margin: 0;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+
+  .timer {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .time-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .time-box {
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1;
+    padding: 0;
+    margin-bottom: 2px;
+  }
+
+  .time-label {
+    font-size: 0.6rem;
+    font-weight: 500;
+    color: #bdbdbd;
+    text-transform: uppercase;
+  }
+
+  .close-btn {
+    position: absolute !important;
+    left: 10px;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: none !important;
+    border: none !important;
+    color: #aaa !important;
+    font-size: 24px !important;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3s ease;
+  }
+
+  .close-btn:hover {
+    color: #fff !important;
+  }
+
+  /* --- WhatsApp Float Styles --- */
+  .whatsapp-float {
+    position: fixed;
+    /* Adjusted to use CSS variable for dynamic positioning */
+    bottom: var(--whatsapp-bottom-spacing);
+    right: 20px; /* Reduced for better mobile fit */
+    width: 60px; /* Reduced for better mobile fit */
+    height: 60px; /* Reduced for better mobile fit */
+    background-color: #25d366;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, bottom 0.4s ease-in-out; /* Added bottom transition */
+  }
+
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+  }
+
+  .whatsapp-icon {
+    width: 36px; /* Adjusted for new button size */
+    height: 36px; /* Adjusted for new button size */
+  }
+
+  /* --- Responsive Adjustments --- */
+  @media (max-width: 768px) {
+    .sticky-banner {
+      padding: 15px 15px 15px 45px !important;
+    }
+    .banner-content-wrapper {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .banner-text-group {
+      align-items: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .time-box {
+      font-size: 1.5rem;
+    }
+    .timer {
+      gap: 10px;
+    }
+  }
+</style>
+
+<!-- HTML for the Sticky Countdown Banner -->
+<div class="sticky-banner" id="sticky-sale-banner">
+  <button class="close-btn" id="close-banner-btn" aria-label="Close Banner">
+    ×
+  </button>
+  <div class="banner-content-wrapper">
+    <div class="banner-text-group">
+      <p class="flash-sale-title"><span>⚡</span> Flash sale</p>
+      <p class="discount-subtitle">UP to 15% off</p>
+    </div>
+    <div class="timer">
+      <div class="time-unit">
+        <div class="time-box" id="days">00</div>
+        <span class="time-label">Days</span>
+      </div>
+      <div class="time-unit">
+        <div class="time-box" id="hours">00</div>
+        <span class="time-label">Hours</span>
+      </div>
+      <div class="time-unit">
+        <div class="time-box" id="minutes">00</div>
+        <span class="time-label">Minutes</span>
+      </div>
+      <div class="time-unit">
+        <div class="time-box" id="seconds">00</div>
+        <span class="time-label">Seconds</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HTML for the WhatsApp Floating Icon -->
+<a
+  href="https://api.whatsapp.com/send?phone=5582XXXXXXXXX&text=Ol%C3%A1!"
+  class="whatsapp-float"
+  target="_blank"
+>
+  <img
+    src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+    alt="WhatsApp"
+    class="whatsapp-icon"
+  />
+</a>
+
+<!-- JavaScript for Functionality -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // --- Banner and WhatsApp Elements ---
+    const banner = document.getElementById("sticky-sale-banner");
+    const whatsappIcon = document.querySelector(".whatsapp-float");
+    const closeBtn = document.getElementById("close-banner-btn");
+    const root = document.documentElement;
+
+    // --- Function to Adjust WhatsApp Icon Position ---
+    function adjustWhatsAppPosition() {
+      if (banner && whatsappIcon) {
+        const bannerHeight = banner.offsetHeight;
+        if (!banner.classList.contains("hidden")) {
+          // If banner is visible, move WhatsApp icon up
+          const newBottomPosition = bannerHeight + 20; // 20px margin
+          root.style.setProperty(
+            "--whatsapp-bottom-spacing",
+            newBottomPosition + "px"
+          );
+        } else {
+          // If banner is hidden, reset WhatsApp icon to its original position
+          root.style.setProperty("--whatsapp-bottom-spacing", "20px");
+        }
+      }
+    }
+
+    // --- Close Button Logic ---
+    if (closeBtn && banner) {
+      closeBtn.addEventListener("click", () => {
+        banner.classList.add("hidden");
+        adjustWhatsAppPosition(); // Re-adjust position after closing
+      });
+    }
+
+    // --- Countdown Timer Logic ---
+    const countdownHours = 72;
+    const countDownDate =
+      new Date().getTime() + countdownHours * 60 * 60 * 1000;
+
+    const daysElem = document.getElementById("days");
+    const hoursElem = document.getElementById("hours");
+    const minutesElem = document.getElementById("minutes");
+    const secondsElem = document.getElementById("seconds");
+
+    const countdownFunction = setInterval(function () {
+      const now = new Date().getTime();
+      const distance = countDownDate - now;
+
+      if (distance < 0) {
+        clearInterval(countdownFunction);
+        const wrapper = document.querySelector(".banner-content-wrapper");
+        if (wrapper) {
+          wrapper.innerHTML = "<p class='flash-sale-title'>SALE EXPIRED</p>";
+          wrapper.style.justifyContent = "center";
+          adjustWhatsAppPosition(); // Adjust on expire as banner height might change
+        }
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      if (daysElem) daysElem.innerHTML = String(days).padStart(2, "0");
+      if (hoursElem) hoursElem.innerHTML = String(hours).padStart(2, "0");
+      if (minutesElem) minutesElem.innerHTML = String(minutes).padStart(2, "0");
+      if (secondsElem) secondsElem.innerHTML = String(seconds).padStart(2, "0");
+    }, 1000);
+
+    // --- Initial and Resize Adjustments ---
+    adjustWhatsAppPosition(); // Initial check
+    window.addEventListener("resize", adjustWhatsAppPosition); // Adjust on window resize
+  });
+</script>
