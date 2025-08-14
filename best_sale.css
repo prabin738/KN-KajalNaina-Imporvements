@@ -1,0 +1,137 @@
+/*Best Seller Badge Starts
+Parent container for products */
+.post-15233 .woocommerce-loop-product__link,
+.post-28864 .woocommerce-loop-product__link,
+.post-9502 .woocommerce-loop-product__link,
+.post-29149 .woocommerce-loop-product__link,
+.post-41740 .woocommerce-loop-product__link,
+.post-41894 .woocommerce-loop-product__link,
+.post-13359 .woocommerce-loop-product__link,
+.post-22789 .woocommerce-loop-product__link,
+.post-22773 .woocommerce-loop-product__link,
+.post-12956 .woocommerce-loop-product__link,
+.post-45408 .woocommerce-loop-product__link,
+.post-31462 .woocommerce-loop-product__link,
+.post-47624 .woocommerce-loop-product__link,
+.post-26052 .woocommerce-loop-product__link,
+.post-23007 .woocommerce-loop-product__link,
+.post-11962 .woocommerce-loop-product__link,
+.post-11962 .woocommerce-loop-product__link,
+.post-31632 .woocommerce-loop-product__link,
+.post-39595 .woocommerce-loop-product__link,
+.post-43762 .woocommerce-loop-product__link,
+.post-29012 .woocommerce-loop-product__link,
+.post-30503 .woocommerce-loop-product__link,
+.post-40467 .woocommerce-loop-product__link,
+.post-32130 .woocommerce-loop-product__link,
+.post-40737 .woocommerce-loop-product__link,
+.post-41837 .woocommerce-loop-product__link,
+.post-40733 .woocommerce-loop-product__link,
+.post-41833 .woocommerce-loop-product__link,
+.post-20254 .woocommerce-loop-product__link,
+.post-3047 .woocommerce-loop-product__link,
+.post-16525 .woocommerce-loop-product__link,
+.post-38757 .woocommerce-loop-product__link,
+.post-34381 .woocommerce-loop-product__link,
+.post-8663 .woocommerce-loop-product__link {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Best Seller Badge - Global Styles (All Pages) */
+.post-9502::before,
+.post-29149::before,
+.post-8663::before,
+.post-41740::before,
+.post-41894::before,
+.post-13359::before,
+.post-22789::before,
+.post-22773::before,
+.post-12956::before,
+.post-45408::before,
+.post-31462::before,
+.post-47624::before,
+.post-26052::before,
+.post-23007::before,
+.post-11962::before,
+.post-11962::before,
+.post-31632::before,
+.post-39595::before,
+.post-43762::before,
+.post-29012::before,
+.post-30503::before,
+.post-40467::before,
+.post-32130::before,
+.post-40737::before,
+.post-41837::before,
+.post-40733::before,
+.post-41833::before,
+.post-20254::before,
+.post-3047::before,
+.post-16525::before,
+.post-38757::before,
+.post-34381::before,
+.post-8663::before {
+  content: "Best Seller";
+  position: absolute;
+  left: 0;
+  top: 15px;
+  background: #c1d4bb;
+  color: #28212b;
+  padding: 15px 10px; /* Original padding */
+  font-size: 20px; /* Original font size */
+  font-family: "Josefin Sans", sans-serif;
+  z-index: 100;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transform: rotate(-5deg) translateX(10px); /* Adjust translateX */
+  line-height: 1;
+  margin: 0;
+}
+
+/* Individual Product Page Fix (No Size Changes) */
+body.single-product .post-15233::before,
+body.single-product .post-28864::before,
+body.single-product .post-9502::before,
+body.single-product .post-29149::before,
+body.single-product .post-41740::before,
+body.single-product .post-41894::before,
+body.single-product .post-13359::before,
+body.single-product .post-22789::before,
+body.single-product .post-22773::before,
+body.single-product .post-12956::before,
+body.single-product .post-45408::before,
+body.single-product .post-31462::before,
+body.single-product .post-47624::before,
+body.single-product .post-26052::before,
+body.single-product .post-23007::before,
+body.single-product .post-11962::before,
+body.single-product .post-11962::before,
+body.single-product .post-31632::before,
+body.single-product .post-39595::before,
+body.single-product .post-43762::before,
+body.single-product .post-29012::before,
+body.single-product .post-30503::before,
+body.single-product .post-40467::before,
+body.single-product .post-32130::before,
+body.single-product .post-40737::before,
+body.single-product .post-41837::before,
+body.single-product .post-40733::before,
+body.single-product .post-41833::before,
+body.single-product .post-20254::before,
+body.single-product .post-3047::before,
+body.single-product .post-16525::before,
+body.single-product .post-38757::before,
+body.single-product .post-34381::before,
+body.single-product .post-8663::before {
+  left: -10px; /* Pull badge to the edge */
+  transform: rotate(-5deg) translateX(200px); /* Counteract negative left */
+  z-index: 100; /* Ensure badge stays above image */
+}
+
+/* Navigation Bar Priority */
+header#masthead,
+.main-navigation ul.menu {
+  position: relative;
+  z-index: 200;
+}

@@ -1,0 +1,133 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  margin: 0;
+}
+
+.review-container {
+  width: 90%;
+  max-width: 1200px;
+  background: #ffffff;
+  padding: 40px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.review-slider {
+  position: relative;
+  overflow: hidden;
+  height: 675px; /* 1350 / 2 */
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+
+.review-slide {
+  min-width: 540px; /* 1080 / 2 */
+  max-width: 540px;
+  height: 100%;
+  margin: 0 20px;
+  transform: scale(0.8);
+  transition: transform 0.5s ease-in-out;
+  opacity: 0.5;
+}
+
+.review-slide.active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.review-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  user-select: none;
+  transition: background-color 0.3s ease;
+  z-index: 2;
+}
+
+.prev {
+  left: 30px;
+}
+.next {
+  right: 30px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .review-container {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 1.8em;
+  }
+
+  .review-slider {
+    height: auto;
+  }
+
+  .slider-track {
+    position: relative;
+  }
+
+  .review-slide {
+    min-width: 100%;
+    margin: 0;
+    transform: scale(1);
+    opacity: 1;
+    display: none;
+  }
+
+  .review-slide.active {
+    display: block;
+  }
+
+  .prev,
+  .next {
+    top: calc(50% - 20px); /* Adjust for mobile view */
+    left: 10px;
+    right: auto;
+  }
+  .next {
+    left: auto;
+    right: 10px;
+  }
+}

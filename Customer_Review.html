@@ -1,0 +1,196 @@
+<!-- Styles for the Customer Review Slider (Mobile-First) -->
+<style>
+  .review-container {
+    width: 100%;
+    max-width: 1200px;
+    background: #f9f9f9;
+    padding: clamp(20px, 4vw, 30px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    text-align: center;
+    margin: 40px auto;
+    overflow: hidden;
+  }
+
+  .review-container h2 {
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+    margin-bottom: 25px;
+    color: #333;
+  }
+
+  /* --- MOBILE STYLES: Single visible slide --- */
+  .review-slider {
+    position: relative;
+    width: 100%;
+    max-width: 320px; /* Set a max-width for the mobile view */
+    margin: 0 auto;
+    overflow: hidden; /* This is crucial */
+  }
+
+  .slider-track {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .review-slide {
+    /* CRITICAL: Each slide takes up 100% of the container's width on mobile */
+    flex: 0 0 100%;
+    width: 100%;
+    box-sizing: border-box;
+    transform: scale(1); /* No scaling on mobile */
+    opacity: 1; /* Full opacity on mobile */
+    padding: 0; /* No extra padding on mobile */
+  }
+
+  .review-slide img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    aspect-ratio: 1080 / 1350;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  /* --- Slider Navigation Buttons --- */
+  .slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #333;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  }
+
+  .slider-button:hover {
+    background-color: white;
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .slider-button.prev {
+    left: 10px;
+  }
+  .slider-button.next {
+    right: 10px;
+  }
+
+  /* --- DESKTOP STYLES: Overrides for the center-stage view --- */
+  @media (min-width: 769px) {
+    .review-slider {
+      max-width: none; /* Allow slider to be full width */
+    }
+
+    .review-slide {
+      /* On desktop, set a fixed basis and re-add padding */
+      flex-basis: 340px;
+      padding: 0 10px;
+      transform: scale(0.8);
+      opacity: 0.6;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    /* The active slide is scaled up and fully opaque */
+    .review-slide.active {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    .slider-button.prev {
+      left: 20px;
+    }
+    .slider-button.next {
+      right: 20px;
+    }
+  }
+</style>
+
+<!-- HTML structure for the Customer Review Slider -->
+<div class="review-container">
+  <h2>See What Our Customers Say</h2>
+  <div class="review-slider">
+    <div class="slider-track">
+      <!-- Add your 1080x1350 review images here -->
+      <div class="review-slide">
+        <img src="/Customer Review/cusrev1.png" alt="Customer Review 1" />
+      </div>
+      <div class="review-slide">
+        <img src="/Customer Review/review1.png" alt="Customer Review 2" />
+      </div>
+      <div class="review-slide">
+        <img src="https://i.imgur.com/gXYmVfW.jpeg" alt="Customer Review 3" />
+      </div>
+      <div class="review-slide">
+        <img src="/Customer Review/review1.png" alt="Customer Review 4" />
+      </div>
+      <div class="review-slide">
+        <img src="https://i.imgur.com/gXYmVfW.jpeg" alt="Customer Review 5" />
+      </div>
+    </div>
+    <!-- Slider Controls -->
+    <button class="slider-button prev">&#10094;</button>
+    <button class="slider-button next">&#10095;</button>
+  </div>
+</div>
+
+<!-- JavaScript for the Slider Functionality -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Find all review containers on the page to make the script reusable
+    const allReviewContainers = document.querySelectorAll(".review-container");
+
+    allReviewContainers.forEach((container) => {
+      const slider = container.querySelector(".review-slider");
+      const track = container.querySelector(".slider-track");
+      const slides = Array.from(track.children);
+      const nextButton = container.querySelector(".next");
+      const prevButton = container.querySelector(".prev");
+
+      if (slides.length === 0) return;
+
+      let currentIndex = 0;
+      let autoSlideInterval;
+
+      const updateSlider = () => {
+        const slideWidth = slides[0].offsetWidth;
+        const sliderWidth = slider.offsetWidth;
+        const centerOffset = (sliderWidth - slideWidth) / 2;
+        const transformValue = centerOffset - currentIndex * slideWidth;
+
+        track.style.transform = `translateX(${transformValue}px)`;
+
+        slides.forEach((slide, index) => {
+          slide.classList.toggle("active", index === currentIndex);
+        });
+      };
+
+      const moveTo = (newIndex) => {
+        currentIndex = (newIndex + slides.length) % slides.length;
+        updateSlider();
+        startAutoSlide();
+      };
+
+      const startAutoSlide = () => {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(() => moveTo(currentIndex + 1), 4000);
+      };
+
+      nextButton.addEventListener("click", () => moveTo(currentIndex + 1));
+      prevButton.addEventListener("click", () => moveTo(currentIndex - 1));
+
+      window.addEventListener("resize", updateSlider);
+
+      // Use a slight delay on initial load to ensure correct width calculations
+      setTimeout(() => {
+        updateSlider();
+        startAutoSlide();
+      }, 100);
+    });
+  });
+</script>

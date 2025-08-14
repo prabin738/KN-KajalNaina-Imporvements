@@ -1,0 +1,243 @@
+<!-- 
+  FINAL VERSION: A self-contained and self-centering review section.
+  The master div ".customer-reviews-section" handles all alignment.
+-->
+
+<!-- Styles for the Customer Review Section -->
+<style>
+  /* The master container that wraps and centers EVERYTHING */
+  .customer-reviews-section {
+    width: 100%;
+    max-width: 1400px; /* Sets the maximum width of the entire section */
+    margin: 60px auto; /* Provides vertical spacing and centers the block horizontally */
+    padding: 0 20px; /* Creates the whitespace margin on left/right for smaller screens */
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif;
+  }
+
+  /* Style for your H2 Heading */
+  .customer-reviews-section h2 {
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 2.5rem); /* Responsive font size */
+    margin-bottom: 40px;
+    color: #333;
+    font-weight: 600;
+  }
+
+  /* Wrapper for just the slider component (no margin needed here) */
+  .review-slider-wrapper {
+    --slide-width-desktop: 380px;
+    --slide-gap-desktop: 15px;
+    position: relative;
+  }
+
+  /* --- MOBILE STYLES --- */
+  .review-slider {
+    position: relative;
+    max-width: 420px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 15px;
+  }
+
+  .slider-track {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .review-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .review-slide img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 1080 / 1350;
+    object-fit: cover;
+  }
+
+  /* --- Slider Navigation Buttons --- */
+  .review-slider-wrapper .slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .review-slider-wrapper .slider-button:hover {
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .review-slider-wrapper .slider-button.prev {
+    left: 15px;
+  }
+  .review-slider-wrapper .slider-button.next {
+    right: 15px;
+  }
+
+  /* --- DESKTOP STYLES --- */
+  @media (min-width: 769px) {
+    .review-slider {
+      max-width: none;
+      overflow: visible;
+    }
+
+    .review-slide {
+      flex-basis: var(--slide-width-desktop);
+      padding: 0 var(--slide-gap-desktop);
+      transform: scale(0.8);
+      opacity: 0.6;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      cursor: pointer;
+    }
+
+    .review-slide.active {
+      transform: scale(1);
+      opacity: 1;
+      cursor: default;
+    }
+
+    .review-slider-wrapper .slider-button.prev {
+      left: calc(
+        50% - var(--slide-width-desktop) / 2 - var(--slide-gap-desktop) - 50px
+      );
+    }
+    .review-slider-wrapper .slider-button.next {
+      right: calc(
+        50% - var(--slide-width-desktop) / 2 - var(--slide-gap-desktop) - 50px
+      );
+    }
+  }
+</style>
+
+<!-- HTML structure wrapped in ONE master div for centering -->
+<div class="customer-reviews-section">
+  <!-- The Heading is now INSIDE the main container -->
+  <h2>See What Our Customers Say</h2>
+
+  <!-- The Slider Component -->
+  <div class="review-slider-wrapper">
+    <div class="review-slider">
+      <div class="slider-track">
+        <!-- Add your review images here -->
+        <div class="review-slide">
+          <img
+            src="https://i.imgur.com/vHqB9iU.png"
+            alt="Customer Review - Black"
+          />
+        </div>
+        <div class="review-slide">
+          <img
+            src="https://i.imgur.com/gXYmVfW.jpeg"
+            alt="Customer Review - Green"
+          />
+        </div>
+        <div class="review-slide">
+          <img
+            src="https://i.imgur.com/vHqB9iU.png"
+            alt="Customer Review - Black"
+          />
+        </div>
+        <div class="review-slide">
+          <img
+            src="https://i.imgur.com/gXYmVfW.jpeg"
+            alt="Customer Review - Green"
+          />
+        </div>
+        <div class="review-slide">
+          <img
+            src="https://i.imgur.com/vHqB9iU.png"
+            alt="Customer Review - Black"
+          />
+        </div>
+      </div>
+    </div>
+    <!-- Buttons are positioned relative to the wrapper -->
+    <button class="slider-button prev">&#10094;</button>
+    <button class="slider-button next">&#10095;</button>
+  </div>
+</div>
+
+<!-- JavaScript for the Slider Functionality -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Find each review section to make the script reusable
+    document
+      .querySelectorAll(".customer-reviews-section")
+      .forEach((section) => {
+        const wrapper = section.querySelector(".review-slider-wrapper");
+        if (!wrapper) return;
+
+        const slider = wrapper.querySelector(".review-slider");
+        const track = wrapper.querySelector(".slider-track");
+        const slides = Array.from(track.children);
+        const nextButton = wrapper.querySelector(".next");
+        const prevButton = wrapper.querySelector(".prev");
+
+        if (slides.length === 0) return;
+
+        let currentIndex = 0;
+        let autoSlideInterval;
+
+        const updateSlider = () => {
+          const isDesktop = window.innerWidth > 768;
+          let transformValue = 0;
+
+          if (isDesktop) {
+            const slideWidth = slides[0].offsetWidth;
+            const sliderWidth = wrapper.offsetWidth;
+            const centerOffset = (sliderWidth - slideWidth) / 2;
+            transformValue = centerOffset - currentIndex * slideWidth;
+          } else {
+            const slideWidth = slider.offsetWidth;
+            transformValue = -(currentIndex * slideWidth);
+          }
+          track.style.transform = `translateX(${transformValue}px)`;
+          slides.forEach((s, i) =>
+            s.classList.toggle("active", i === currentIndex)
+          );
+        };
+
+        const moveTo = (newIndex) => {
+          currentIndex = (newIndex + slides.length) % slides.length;
+          updateSlider();
+          startAutoSlide();
+        };
+
+        const startAutoSlide = () => {
+          clearInterval(autoSlideInterval);
+          autoSlideInterval = setInterval(() => moveTo(currentIndex + 1), 4000);
+        };
+
+        nextButton.addEventListener("click", () => moveTo(currentIndex + 1));
+        prevButton.addEventListener("click", () => moveTo(currentIndex - 1));
+
+        slides.forEach((slide, index) => {
+          slide.addEventListener("click", () => {
+            if (window.innerWidth > 768 && index !== currentIndex)
+              moveTo(index);
+          });
+        });
+
+        window.addEventListener("resize", updateSlider);
+        setTimeout(updateSlider, 100);
+        startAutoSlide();
+      });
+  });
+</script>
