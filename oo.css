@@ -1,0 +1,36 @@
+/* Individual Product Page Fix (No Size Changes) */
+body.single-product .post-45410::before,
+body.single-product .post-45400::before,
+body.single-product .post-40219::before,
+body.single-product .post-2812::before,
+body.single-product .post-13364::before,
+body.single-product .post-33651::before,
+body.single-product .post-9499::before,
+body.single-product .post-33660::before,
+body.single-product .post-33662::before,
+body.single-product .post-33840::before,
+body.single-product .post-33286::before,
+body.single-product .post-33646::before,
+body.single-product .post-3752::before,
+body.single-product .post-4363::before,
+body.single-product .post-4525::before,
+body.single-product .post-3050::before,
+body.single-product .post-27111::before,
+body.single-product .post-7047::before,
+body.single-product .post-3047::before,
+body.single-product .post-4945::before,
+body.single-product .post-30780::before,
+body.single-product .post-30778::before,
+body.single-product .post-40746::before,
+body.single-product .post-12956::before {
+  left: -10px; /* Pull badge to the edge */
+  transform: rotate(-5deg) translateX(200px); /* Counteract negative left */
+  z-index: 100; /* Ensure badge stays above image */
+}
+
+/* Navigation Bar Priority */
+header#masthead,
+.main-navigation ul.menu {
+  position: relative;
+  z-index: 200;
+}

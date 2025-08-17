@@ -1,10 +1,11 @@
 <style>
+  /* --- WhatsApp Float Styles --- */
   .whatsapp-float {
     position: fixed;
-    bottom: 40px;
-    left: 40px;
-    width: 80px;
-    height: 80px;
+    bottom: var(--whatsapp-bottom-spacing);
+    left: 20px;
+    width: 70px;
+    height: 70px;
     background-color: #25d366;
     border-radius: 50%;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
@@ -12,7 +13,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, bottom 0.4s ease-in-out;
   }
 
   .whatsapp-float:hover {
@@ -20,13 +21,14 @@
   }
 
   .whatsapp-icon {
-    width: 48px;
-    height: 48px;
+    width: 42px;
+    height: 42px;
   }
 </style>
 
+<!-- HTML for the WhatsApp Floating Icon -->
 <a
-  href="https://api.whatsapp.com/send?phone=9704599202&text=Ol%C3%A1!"
+  href="https://api.whatsapp.com/send?phone=5582XXXXXXXXX&text=Ol%C3%A1!"
   class="whatsapp-float"
   target="_blank"
 >

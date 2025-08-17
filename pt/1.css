@@ -1,0 +1,61 @@
+/*
+================================================================
+CSS-Only Sticky Coupon Banner for Specific Products
+================================================================
+*/
+
+/* 
+ * Step 1: Define the banner's style using the body's ::after pseudo-element.
+ * It's set to 'display: none' so it is hidden by default on all pages.
+*/
+body::after {
+  /* Banner Content & Font Styling */
+  content: "Use Coupon: Teej12 for 12% off";
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f5f5f5;
+
+  /* Banner Layout & Positioning */
+  display: none; /* Hidden by default */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999; /* High z-index to stay on top */
+
+  /* Banner Appearance */
+  background-color: #2d2d2d;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+  padding: 15px 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* 
+ * Step 2: Select the specific product pages where the banner should be visible.
+ * We target the unique 'postid-XXXX' class on the <body> tag for each product.
+ * On these pages, we change the display property from 'none' to 'block'.
+*/
+body.postid-45406::after,
+body.postid-45402::after,
+body.postid-45398::after,
+body.postid-45390::after,
+body.postid-45388::after,
+body.postid-41894::after,
+body.postid-28864::after,
+body.postid-13359::after,
+body.postid-29149::after,
+body.postid-8663::after,
+body.postid-38743::after,
+body.postid-29075::after {
+  display: block !important; /* Makes the banner visible on these pages */
+}
+
+/* Optional: Media query for better appearance on small screens */
+@media (max-width: 768px) {
+  body::after {
+    font-size: 0.9rem;
+    padding: 12px 15px;
+  }
+}

@@ -1,11 +1,13 @@
+<!-- Combined and Adjusted Code V3: Persistent Countdown Timer -->
+
 <style>
   /* --- Google Font Import --- */
   @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap");
 
   /* --- CSS Variables for Dynamic Positioning --- */
   :root {
-    --banner-height: 100px; /* Default height, will be adjusted by JS */
-    --whatsapp-bottom-spacing: 20px; /* Initial bottom spacing for WhatsApp icon */
+    --banner-height: 100px;
+    --whatsapp-bottom-spacing: 20px;
   }
 
   /* --- Sticky Banner Styles --- */
@@ -122,11 +124,10 @@
   /* --- WhatsApp Float Styles --- */
   .whatsapp-float {
     position: fixed;
-    /* Adjusted to use CSS variable for dynamic positioning */
     bottom: var(--whatsapp-bottom-spacing);
-    right: 20px; /* Reduced for better mobile fit */
-    width: 60px; /* Reduced for better mobile fit */
-    height: 60px; /* Reduced for better mobile fit */
+    left: 20px;
+    width: 70px;
+    height: 70px;
     background-color: #25d366;
     border-radius: 50%;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
@@ -134,7 +135,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s ease, bottom 0.4s ease-in-out; /* Added bottom transition */
+    transition: transform 0.3s ease, bottom 0.4s ease-in-out;
   }
 
   .whatsapp-float:hover {
@@ -142,8 +143,8 @@
   }
 
   .whatsapp-icon {
-    width: 36px; /* Adjusted for new button size */
-    height: 36px; /* Adjusted for new button size */
+    width: 42px;
+    height: 42px;
   }
 
   /* --- Responsive Adjustments --- */
@@ -202,11 +203,7 @@
 </div>
 
 <!-- HTML for the WhatsApp Floating Icon -->
-<a
-  href="https://api.whatsapp.com/send?phone=5582XXXXXXXXX&text=Ol%C3%A1!"
-  class="whatsapp-float"
-  target="_blank"
->
+<a href="https://wa.link/fb0jks" class="whatsapp-float" target="_blank">
   <img
     src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
     alt="WhatsApp"
@@ -217,42 +214,41 @@
 <!-- JavaScript for Functionality -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // --- Banner and WhatsApp Elements ---
     const banner = document.getElementById("sticky-sale-banner");
     const whatsappIcon = document.querySelector(".whatsapp-float");
     const closeBtn = document.getElementById("close-banner-btn");
     const root = document.documentElement;
 
-    // --- Function to Adjust WhatsApp Icon Position ---
     function adjustWhatsAppPosition() {
       if (banner && whatsappIcon) {
         const bannerHeight = banner.offsetHeight;
         if (!banner.classList.contains("hidden")) {
-          // If banner is visible, move WhatsApp icon up
-          const newBottomPosition = bannerHeight + 20; // 20px margin
+          const newBottomPosition = bannerHeight + 20;
           root.style.setProperty(
             "--whatsapp-bottom-spacing",
             newBottomPosition + "px"
           );
         } else {
-          // If banner is hidden, reset WhatsApp icon to its original position
           root.style.setProperty("--whatsapp-bottom-spacing", "20px");
         }
       }
     }
 
-    // --- Close Button Logic ---
     if (closeBtn && banner) {
       closeBtn.addEventListener("click", () => {
         banner.classList.add("hidden");
-        adjustWhatsAppPosition(); // Re-adjust position after closing
+        adjustWhatsAppPosition();
       });
     }
 
-    // --- Countdown Timer Logic ---
-    const countdownHours = 72;
-    const countDownDate =
-      new Date().getTime() + countdownHours * 60 * 60 * 1000;
+    // --- Countdown Timer Logic (MODIFIED) ---
+
+    // MODIFICATION: Set a specific end date for your sale here.
+    // FORMAT: YYYY/MM/DD HH:MM:SS
+    const saleEndDate = "2025/08/20 23:59:59";
+
+    // This line converts your date string into a timestamp the script can use.
+    const countDownDate = new Date(saleEndDate).getTime();
 
     const daysElem = document.getElementById("days");
     const hoursElem = document.getElementById("hours");
@@ -269,7 +265,7 @@
         if (wrapper) {
           wrapper.innerHTML = "<p class='flash-sale-title'>SALE EXPIRED</p>";
           wrapper.style.justifyContent = "center";
-          adjustWhatsAppPosition(); // Adjust on expire as banner height might change
+          adjustWhatsAppPosition();
         }
         return;
       }
@@ -287,8 +283,7 @@
       if (secondsElem) secondsElem.innerHTML = String(seconds).padStart(2, "0");
     }, 1000);
 
-    // --- Initial and Resize Adjustments ---
-    adjustWhatsAppPosition(); // Initial check
-    window.addEventListener("resize", adjustWhatsAppPosition); // Adjust on window resize
+    adjustWhatsAppPosition();
+    window.addEventListener("resize", adjustWhatsAppPosition);
   });
 </script>
