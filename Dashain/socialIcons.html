@@ -1,0 +1,114 @@
+<style>
+  /* --- Google Font Import (if not already imported elsewhere) --- */
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap");
+
+  /* --- CSS Variables --- */
+  :root {
+    --icon-size: 70px; /* Consistent size for both icons */
+    --icon-image-size: 42px; /* Size for the SVG inside the circle */
+    --icon-spacing: 10px; /* Space between the two icons when stacked */
+    --side-offset: 20px; /* Distance from the right edge */
+  }
+
+  /* --- Floating Social Icons Container --- */
+  .social-float-container {
+    position: fixed; /* Stays in place when scrolling */
+    right: var(--side-offset); /* Position on the right side */
+    top: 50%; /* Start at 50% from the top */
+    transform: translateY(
+      -50%
+    ); /* Adjust upwards by half its height for vertical centering */
+    display: flex; /* Use flexbox to arrange icons */
+    flex-direction: column; /* Stack icons vertically */
+    gap: var(--icon-spacing); /* Space between stacked icons */
+    z-index: 999;
+    font-family: "Montserrat", sans-serif;
+    /* No bottom spacing needed anymore as it's vertically centered */
+  }
+
+  /* --- Individual Icon Styles (WhatsApp and Instagram) --- */
+  .social-float-container .social-icon-wrapper {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center; /* Vertically center image */
+    justify-content: center; /* Horizontally center image */
+    transition: transform 0.3s ease; /* Transition for hover effect */
+  }
+
+  .social-float-container .social-icon-wrapper:hover {
+    transform: scale(1.1);
+  }
+
+  .social-float-container .social-icon-wrapper img {
+    width: var(--icon-image-size);
+    height: var(--icon-image-size);
+  }
+
+  /* Specific background colors */
+  .whatsapp-icon-bg {
+    background-color: #25d366; /* WhatsApp green */
+  }
+
+  .instagram-icon-bg {
+    background: radial-gradient(
+      circle at 30% 107%,
+      #fdf497 0%,
+      #fdf497 5%,
+      #fd5949 45%,
+      #d6249f 60%,
+      #285aeb 90%
+    ); /* Instagram gradient */
+  }
+
+  /* --- Responsive Adjustments --- */
+  @media (max-width: 768px) {
+    /* Slightly smaller icons for tablets/larger mobiles */
+    :root {
+      --icon-size: 60px;
+      --icon-image-size: 36px;
+      --icon-spacing: 8px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    /* Further adjustments for smaller mobile screens */
+    :root {
+      --icon-size: 50px;
+      --icon-image-size: 30px;
+      --side-offset: 15px; /* Less offset from side */
+      --icon-spacing: 7px;
+    }
+  }
+</style>
+
+<!-- HTML for the Floating Social Icons -->
+<div class="social-float-container" id="social-float-container">
+  <a
+    href="https://wa.link/ovbg3q"
+    class="social-icon-wrapper whatsapp-icon-bg"
+    target="_blank"
+    aria-label="Chat on WhatsApp"
+  >
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+      alt="WhatsApp"
+    />
+  </a>
+  <a
+    href="https://www.instagram.com/kajalnaina_np/"
+    class="social-icon-wrapper instagram-icon-bg"
+    target="_blank"
+    aria-label="Follow on Instagram"
+  >
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+      alt="Instagram"
+    />
+  </a>
+</div>
+
+<!-- JavaScript: Removed since there's no dynamic positioning needed for vertical centering from a banner -->
+<!-- If you integrate with the banner later, ensure the banner's bottom positioning doesn't conflict -->

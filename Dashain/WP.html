@@ -1,0 +1,61 @@
+<style>
+  /* --- Google Font Import (if not already imported elsewhere) --- */
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap");
+
+  /* --- CSS Variables for Dynamic Positioning --- */
+  :root {
+    --whatsapp-bottom-spacing: 20px;
+  }
+
+  /* --- WhatsApp Float Styles --- */
+  .whatsapp-float {
+    position: fixed;
+    bottom: var(--whatsapp-bottom-spacing);
+    left: 20px;
+    width: 70px;
+    height: 70px;
+    background-color: #25d366;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, bottom 0.4s ease-in-out;
+  }
+
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+  }
+
+  .whatsapp-icon {
+    width: 42px;
+    height: 42px;
+  }
+</style>
+
+<!-- HTML for the WhatsApp Floating Icon -->
+<a href="https://wa.link/ovbg3q" class="whatsapp-float" target="_blank">
+  <img
+    src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+    alt="WhatsApp"
+    class="whatsapp-icon"
+  />
+</a>
+
+<!-- JavaScript for WhatsApp (Adjusts position if other elements are present, otherwise just ensures initial position) -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const whatsappIcon = document.querySelector(".whatsapp-float");
+    const root = document.documentElement;
+
+    // This function can be simplified if there's no other banner
+    function adjustWhatsAppPosition() {
+      // If no other banners influence its position, it just stays at --whatsapp-bottom-spacing
+      root.style.setProperty("--whatsapp-bottom-spacing", "20px");
+    }
+
+    adjustWhatsAppPosition();
+    window.addEventListener("resize", adjustWhatsAppPosition);
+  });
+</script>

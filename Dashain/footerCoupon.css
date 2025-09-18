@@ -1,0 +1,138 @@
+/*
+ * Base styles for the sticky footer banner.
+ * This defines the appearance and position for *all* banners.
+ * The content will be set dynamically per page.
+*/
+body::after {
+  /* Banner Content - Will be overridden by specific postid rules */
+  content: var(
+    --banner-content,
+    ""
+  ); /* Default empty, set by postid-specific rules */
+
+  /* Font Styling */
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f5f5f5;
+
+  /* Banner Layout & Positioning */
+  display: none; /* Hidden by default, made visible by specific postid rules */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999; /* High z-index to stay on top */
+
+  /* Banner Appearance */
+  background-color: #2d2d2d;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+  padding: 15px 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* 
+ * 15% Off Banner Specific Pages
+ * On these pages, we set the --banner-content variable
+ * and change the display property from 'none' to 'block'.
+*/
+body.postid-45410::after,
+body.postid-45400::after,
+body.postid-40219::after,
+body.postid-2812::after,
+body.postid-43888::after,
+body.postid-13364::after,
+body.postid-41727::after,
+body.postid-33651::after,
+body.postid-33660::after,
+body.postid-33662::after,
+body.postid-33840::after,
+body.postid-33646::after,
+body.postid-50614::after,
+body.postid-47803::after,
+body.postid-4431::after,
+body.postid-3758::after,
+body.postid-4441::after,
+body.postid-7946::after, /* Removed duplicate */
+body.postid-27111::after,
+body.postid-7043::after,
+body.postid-22803::after,
+body.postid-4945::after,
+body.postid-7318::after,
+body.postid-26081::after,
+body.postid-40746::after,
+body.postid-40733::after,
+body.postid-40736::after,
+body.postid-40739::after,
+body.postid-41837::after,
+body.postid-40725::after,
+body.postid-40726::after {
+  --banner-content: "Use Coupon: DTC15 for 15% off"; /* Set the specific content */
+  display: block !important; /* Make the banner visible */
+}
+
+/* 
+ * 12% Off Banner Specific Pages
+ * On these pages, we set the --banner-content variable
+ * and change the display property from 'none' to 'block'.
+*/
+body.postid-45408::after,
+body.postid-45556::after,
+body.postid-45406::after,
+body.postid-45402::after,
+body.postid-45398::after,
+body.postid-45394::after,
+body.postid-45396::after,
+body.postid-8822::after,
+body.postid-22954::after, /* Removed duplicate */
+body.postid-33366::after,
+body.postid-45390::after,
+body.postid-45388::after,
+body.postid-50684::after,
+body.postid-34501::after,
+body.postid-23387::after,
+body.postid-31698::after,
+body.postid-26048::after,
+body.postid-21063::after,
+body.postid-41894::after,
+body.postid-28864::after,
+body.postid-37796::after,
+body.postid-29150::after,
+body.postid-29102::after,
+body.postid-9499::after,
+body.postid-12958::after,
+body.postid-41725::after,
+body.postid-17379::after,
+body.postid-3057::after,
+body.postid-3054::after,
+body.postid-44509::after,
+body.postid-44517::after,
+body.postid-44676::after,
+body.postid-44770::after,
+body.postid-45384::after,
+body.postid-30510::after,
+body.postid-46160::after,
+body.postid-50694::after,
+body.postid-44507::after,
+body.postid-44533::after,
+body.postid-44525::after,
+body.postid-18411::after,
+body.postid-21587::after,
+body.postid-38743::after,
+body.postid-14623::after,
+body.postid-45382::after,
+body.postid-45385::after,
+body.postid-29075::after,
+body.postid-29107::after {
+  --banner-content: "Use Coupon: DTC12 for 12% off"; /* Set the specific content */
+  display: block !important; /* Make the banner visible */
+}
+
+/* Optional: Media query for better appearance on small screens */
+@media (max-width: 768px) {
+  body::after {
+    font-size: 0.9rem;
+    padding: 12px 15px;
+  }
+}

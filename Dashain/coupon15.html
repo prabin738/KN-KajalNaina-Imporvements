@@ -1,0 +1,66 @@
+<style>
+  /* For 15% Off */
+  body::after {
+    /* Banner Content & Font Styling */
+    content: "Use Coupon: Teej15 for 15% off";
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #f5f5f5;
+
+    /* Banner Layout & Positioning */
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999; /* High z-index to stay on top */
+
+    /* Banner Appearance */
+    background-color: #2d2d2d;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+    padding: 15px 20px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  /* 
+ * Step 2: Select the specific product pages where the banner should be visible.
+ * We target the unique 'postid-XXXX' class on the <body> tag for each product.
+ * On these pages, we change the display property from 'none' to 'block'.
+*/
+  body.postid-45410::after,
+  body.postid-45400::after,
+  body.postid-40219::after,
+  body.postid-2812::after,
+  body.postid-13364::after,
+  body.postid-33651::after,
+  body.postid-9499::after,
+  body.postid-33660::after,
+  body.postid-33662::after,
+  body.postid-33840::after,
+  body.postid-33286::after,
+  body.postid-33646::after,
+  body.postid-3752::after,
+  body.postid-4363::after,
+  body.postid-4525::after,
+  body.postid-3050::after,
+  body.postid-27111::after,
+  body.postid-7047::after,
+  body.postid-3047::after,
+  body.postid-4945::after,
+  body.postid-30780::after,
+  body.postid-30778::after,
+  body.postid-40746::after,
+  body.postid-12956::after {
+    display: block !important; /* Makes the banner visible on these pages */
+  }
+
+  /* Optional: Media query for better appearance on small screens */
+  @media (max-width: 768px) {
+    body::after {
+      font-size: 0.9rem;
+      padding: 12px 15px;
+    }
+  }
+</style>

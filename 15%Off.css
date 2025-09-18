@@ -22,7 +22,8 @@ Parent container for products */
 .post-4945 .woocommerce-loop-product__link,
 .post-30780 .woocommerce-loop-product__link,
 .post-30778 .woocommerce-loop-product__link,
-.post-40746 .woocommerce-loop-product__link {
+.post-40746 .woocommerce-loop-product__link,
+.post-12956 .woocommerce-loop-product__link {
   position: relative;
   overflow: hidden;
 }
@@ -50,7 +51,8 @@ Parent container for products */
 .post-4945::before,
 .post-30780::before,
 .post-30778::before,
-.post-40746::before {
+.post-40746::before,
+.post-12956::before {
   content: "15% OFF";
   font-weight: 800;
   position: absolute;
@@ -92,7 +94,8 @@ body.single-product .post-3047::before,
 body.single-product .post-4945::before,
 body.single-product .post-30780::before,
 body.single-product .post-30778::before,
-body.single-product .post-40746::before {
+body.single-product .post-40746::before,
+body.single-product  .post-12956::before {
   left: -10px; /* Pull badge to the edge */
   transform: rotate(-5deg) translateX(200px); /* Counteract negative left */
   z-index: 100; /* Ensure badge stays above image */
