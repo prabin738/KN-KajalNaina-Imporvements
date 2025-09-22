@@ -1,0 +1,165 @@
+/*Best Seller Badge Starts
+Parent container for products */
+.post-41894 .woocommerce-loop-product__link,
+.post-8663 .woocommerce-loop-product__link,
+.post-33651 .woocommerce-loop-product__link,
+.post-9499 .woocommerce-loop-product__link,
+.post-17379 .woocommerce-loop-product__link {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Best Seller Badge - Global Styles (All Pages) */
+
+.post-41894::before,
+.post-8663::before,
+.post-33651::before,
+.post-9499::before,
+.post-17379::before {
+  content: "18% OFF";
+  font-weight: 800;
+  position: absolute;
+  left: 0;
+  top: 15px;
+  background: #c1d4bb;
+  color: #28212b;
+  padding: 15px 10px; /* Original padding */
+  font-size: 20px; /* Original font size */
+  font-family: "Josefin Sans", sans-serif;
+  z-index: 100;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transform: rotate(0deg) translateX(10px); /* Adjust translateX */
+  line-height: 1;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .badge {
+    top: 0;
+    left: 50%;
+    padding: 10px 8px;
+    font-size: 16px;
+  }
+}
+
+/* Individual Product Page Fix (No Size Changes) */
+
+body.single-product .post-41894::before,
+body.single-product .post-8663::before,
+body.single-product .post-33651::before,
+body.single-product .post-9499::before,
+body.single-product .post-17379::before {
+  left: -10px; /* Pull badge to the edge */
+  transform: rotate(-5deg) translateX(200px); /* Counteract negative left */
+  z-index: 100; /* Ensure badge stays above image */
+}
+
+/* Navigation Bar Priority */
+header#masthead,
+.main-navigation ul.menu {
+  position: relative;
+  z-index: 200;
+}
+/*Best Seller Badge Starts 20%
+Parent container for products */
+.post-3057 .woocommerce-loop-product__link,
+.post-26081 .woocommerce-loop-product__link {
+  position: relative;
+  overflow: hidden;
+}
+/* Best Seller Badge - Global Styles (All Pages) */
+.post-3057::before,
+.post-26081::before {
+  content: "20% OFF";
+  font-weight: 800;
+  position: absolute;
+  left: 0;
+  top: 15px;
+  background: #c1d4bb;
+  color: #28212b;
+  padding: 15px 10px; /* Original padding */
+  font-size: 20px; /* Original font size */
+  font-family: "Josefin Sans", sans-serif;
+  z-index: 100;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transform: rotate(0deg) translateX(10px); /* Adjust translateX */
+  line-height: 1;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .badge {
+    top: 0;
+    left: 50%;
+    padding: 10px 8px;
+    font-size: 16px;
+  }
+}
+
+/* Individual Product Page Fix (No Size Changes) */
+body.single-product .post-3057::before,
+body.single-product .post-26081::before {
+  left: -10px; /* Pull badge to the edge */
+  transform: rotate(0deg) translateX(200px); /* Counteract negative left */
+  z-index: 100; /* Ensure badge stays above image */
+}
+
+/* Navigation Bar Priority */
+header#masthead,
+.main-navigation ul.menu {
+  position: relative;
+  z-index: 200;
+}
+
+/*Best Seller Badge Starts 25%
+Parent container for products */
+.post-45400 .woocommerce-loop-product__link,
+.post-45398 .woocommerce-loop-product__link {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Best Seller Badge - Global Styles (All Pages) */
+.post-45400::before,
+.post-45398::before {
+  content: "20% OFF";
+  font-weight: 800;
+  position: absolute;
+  left: 0;
+  top: 15px;
+  background: #c1d4bb;
+  color: #28212b;
+  padding: 15px 10px; /* Original padding */
+  font-size: 20px; /* Original font size */
+  font-family: "Josefin Sans", sans-serif;
+  z-index: 100;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transform: rotate(0deg) translateX(10px); /* Adjust translateX */
+  line-height: 1;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .badge {
+    top: 0;
+    left: 50%;
+    padding: 10px 8px;
+    font-size: 16px;
+  }
+}
+
+/* Individual Product Page Fix (No Size Changes) */
+body.single-product .post-45400::before,
+body.single-product .post-45398::before {
+  left: -10px; /* Pull badge to the edge */
+  transform: rotate(0deg) translateX(200px); /* Counteract negative left */
+  z-index: 100; /* Ensure badge stays above image */
+}
+
+/* Navigation Bar Priority */
+header#masthead,
+.main-navigation ul.menu {
+  position: relative;
+  z-index: 200;
+}

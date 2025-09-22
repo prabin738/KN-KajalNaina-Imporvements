@@ -19,12 +19,15 @@ Parent container for products */
 .post-31698 .woocommerce-loop-product__link,
 .post-26048 .woocommerce-loop-product__link,
 .post-21063 .woocommerce-loop-product__link,
+.post-41894 .woocommerce-loop-product__link,
 .post-28864 .woocommerce-loop-product__link,
 .post-37796 .woocommerce-loop-product__link,
 .post-29150 .woocommerce-loop-product__link,
 .post-29102 .woocommerce-loop-product__link,
+.post-9499 .woocommerce-loop-product__link,
 .post-12958 .woocommerce-loop-product__link,
 .post-41725 .woocommerce-loop-product__link,
+.post-17379 .woocommerce-loop-product__link,
 .post-3057 .woocommerce-loop-product__link,
 .post-3054 .woocommerce-loop-product__link,
 .post-44509 .woocommerce-loop-product__link,
@@ -70,12 +73,15 @@ Parent container for products */
 .post-31698::before,
 .post-26048::before,
 .post-21063::before,
+.post-41894::before,
 .post-28864::before,
 .post-37796::before,
 .post-29150::before,
 .post-29102::before,
+.post-9499::before,
 .post-12958::before,
 .post-41725::before,
+.post-17379::before,
 .post-3057::before,
 .post-3054::before,
 .post-44509::before,
@@ -110,18 +116,9 @@ Parent container for products */
   z-index: 100;
   border-radius: 50%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transform: rotate(-5deg) translateX(10px); /* Adjust translateX */
+  transform: rotate(0deg) translateX(10px); /* Adjust translateX */
   line-height: 1;
   margin: 0;
-}
-
-@media (max-width: 768px) {
-  .badge {
-    top: 0;
-    left: 50%;
-    padding: 10px 8px;
-    font-size: 16px;
-  }
 }
 
 /* Individual Product Page Fix (No Size Changes) */
@@ -144,12 +141,15 @@ body.single-product .post-23387::before,
 body.single-product .post-31698::before,
 body.single-product .post-26048::before,
 body.single-product .post-21063::before,
+body.single-product .post-41894::before,
 body.single-product .post-28864::before,
 body.single-product .post-37796::before,
 body.single-product .post-29150::before,
 body.single-product .post-29102::before,
+body.single-product .post-9499::before,
 body.single-product .post-12958::before,
 body.single-product .post-41725::before,
+body.single-product .post-17379::before,
 body.single-product .post-3057::before,
 body.single-product .post-3054::before,
 body.single-product .post-44509::before,
@@ -172,7 +172,7 @@ body.single-product .post-45385::before,
 body.single-product .post-29075::before,
 body.single-product .post-29107::before {
   left: -10px; /* Pull badge to the edge */
-  transform: rotate(-5deg) translateX(200px); /* Counteract negative left */
+  transform: rotate(0deg) translateX(200px); /* Counteract negative left */
   z-index: 100; /* Ensure badge stays above image */
 }
 
@@ -185,11 +185,14 @@ header#masthead,
 /*Best Seller Badge Starts 15%
 Parent container for products */
 .post-45410 .woocommerce-loop-product__link,
+.post-45400 .woocommerce-loop-product__link,
 .post-40219 .woocommerce-loop-product__link,
 .post-2812 .woocommerce-loop-product__link,
 .post-43888 .woocommerce-loop-product__link,
 .post-13364 .woocommerce-loop-product__link,
 .post-41727 .woocommerce-loop-product__link,
+.post-45398 .woocommerce-loop-product__link,
+.post-33651 .woocommerce-loop-product__link,
 .post-33660 .woocommerce-loop-product__link,
 .post-33662 .woocommerce-loop-product__link,
 .post-33840 .woocommerce-loop-product__link,
@@ -207,6 +210,7 @@ Parent container for products */
 .post-22803 .woocommerce-loop-product__link,
 .post-4945 .woocommerce-loop-product__link,
 .post-7318 .woocommerce-loop-product__link,
+.post-26081 .woocommerce-loop-product__link,
 .post-40746 .woocommerce-loop-product__link,
 .post-40733 .woocommerce-loop-product__link,
 .post-40736 .woocommerce-loop-product__link,
@@ -220,11 +224,14 @@ Parent container for products */
 
 /* Best Seller Badge - Global Styles (All Pages) */
 .post-45410::before,
+.post-45400::before,
 .post-40219::before,
 .post-2812::before,
 .post-43888::before,
 .post-13364::before,
 .post-41727::before,
+.post-45398::before,
+.post-33651::before,
 .post-33660::before,
 .post-33662::before,
 .post-33840::before,
@@ -242,6 +249,7 @@ Parent container for products */
 .post-22803::before,
 .post-4945::before,
 .post-7318::before,
+.post-26081::before,
 .post-40746::before,
 .post-40733::before,
 .post-40736::before,
@@ -262,28 +270,23 @@ Parent container for products */
   z-index: 100;
   border-radius: 50%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transform: rotate(-5deg) translateX(10px); /* Adjust translateX */
+  transform: rotate(0deg) translateX(10px); /* Adjust translateX */
   line-height: 1;
   margin: 0;
-}
-@media (max-width: 768px) {
-  .badge {
-    top: 0;
-    left: 50%;
-    padding: 10px 8px;
-    font-size: 16px;
-  }
 }
 
 /* Individual Product Page Fix (No Size Changes) */
 body.single-product .post-45410::before,
+body.single-product .post-45400::before,
 body.single-product .post-40219::before,
 body.single-product .post-2812::before,
 body.single-product .post-43888::before,
 body.single-product .post-13364::before,
 body.single-product .post-41727::before,
+body.single-product .post-33651::before,
 body.single-product .post-33660::before,
 body.single-product .post-33662::before,
+body.single-product .post-45398::before,
 body.single-product .post-33840::before,
 body.single-product .post-33646::before,
 body.single-product .post-50614::before,
@@ -299,6 +302,7 @@ body.single-product .post-7043::before,
 body.single-product .post-22803::before,
 body.single-product .post-4945::before,
 body.single-product .post-7318::before,
+body.single-product .post-26081::before,
 body.single-product .post-40746::before,
 body.single-product .post-40733::before,
 body.single-product .post-40736::before,
@@ -307,7 +311,7 @@ body.single-product .post-41837::before,
 body.single-product .post-40725::before,
 body.single-product .post-40726::before {
   left: -10px; /* Pull badge to the edge */
-  transform: rotate(-5deg) translateX(200px); /* Counteract negative left */
+  transform: rotate(0deg) translateX(200px); /* Counteract negative left */
   z-index: 100; /* Ensure badge stays above image */
 }
 
