@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS Flex Arrow Icon</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0; /* Just for better visibility */
+      }
+
+      /* Paste the .flex-next CSS from above here */
+      .flex-next {
+        width: 100px; /* Adjust size as needed */
+        height: 100px; /* Adjust size as needed */
+        background-color: black; /* The black background for the circle */
+        border-radius: 50%; /* Circular button */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: relative; /* Needed for absolute positioning of the arrow */
+        z-index: 10;
+      }
+
+      .flex-next::after {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-top: 5px solid white;
+        border-right: 5px solid white;
+        transform: rotate(45deg);
+        position: absolute;
+        right: 35px;
+      }
+
+      /* Optional: If you want to see a left arrow too */
+      .flex-prev {
+        width: 100px;
+        height: 100px;
+        background-color: black;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: relative;
+        z-index: 10;
+        margin-right: 20px; /* Spacing if both are present */
+      }
+
+      .flex-prev::after {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-top: 5px solid white;
+        border-right: 5px solid white;
+        transform: rotate(-135deg); /* Flips for left arrow */
+        position: absolute;
+        left: 35px; /* Adjust to center visually */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-prev"></div>
+    <!-- Example for previous button -->
+    <div class="flex-next"></div>
+    <!-- Your requested icon -->
+  </body>
+</html>
