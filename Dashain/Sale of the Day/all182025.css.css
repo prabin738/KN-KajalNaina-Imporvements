@@ -21,7 +21,6 @@ Parent container for products */
 .post-29102 .woocommerce-loop-product__link,
 .post-12958 .woocommerce-loop-product__link,
 .post-41725 .woocommerce-loop-product__link,
-.post-3057 .woocommerce-loop-product__link,
 .post-44770 .woocommerce-loop-product__link,
 .post-30510 .woocommerce-loop-product__link,
 .post-46160 .woocommerce-loop-product__link,
@@ -63,7 +62,6 @@ Parent container for products */
 .post-29102::before,
 .post-12958::before,
 .post-41725::before,
-.post-3057::before,
 .post-44770::before,
 .post-30510::before,
 .post-46160::before,
@@ -83,7 +81,7 @@ Parent container for products */
   font-weight: 800;
   position: absolute;
   left: 0;
-  top: 15px;
+  top: 10px;
   background: #c1d4bb;
   color: #28212b;
   padding: 15px 10px; /* Original padding */
@@ -128,7 +126,6 @@ body.single-product .post-29150::before,
 body.single-product .post-29102::before,
 body.single-product .post-12958::before,
 body.single-product .post-41725::before,
-body.single-product .post-3057::before,
 body.single-product .post-44770::before,
 body.single-product .post-30510::before,
 body.single-product .post-46160::before,
@@ -158,7 +155,6 @@ header#masthead,
 /*Best Seller Badge Starts 15%
 Parent container for products */
 .post-45410 .woocommerce-loop-product__link,
-.post-45402 .woocommerce-loop-product__link,
 .post-40219 .woocommerce-loop-product__link,
 .post-2812 .woocommerce-loop-product__link,
 .post-43888 .woocommerce-loop-product__link,
@@ -180,7 +176,6 @@ Parent container for products */
 .post-7043 .woocommerce-loop-product__link,
 .post-22803 .woocommerce-loop-product__link,
 .post-7318 .woocommerce-loop-product__link,
-.post-26081 .woocommerce-loop-product__link,
 .post-40746 .woocommerce-loop-product__link,
 .post-40733 .woocommerce-loop-product__link,
 .post-40736 .woocommerce-loop-product__link,
@@ -194,7 +189,6 @@ Parent container for products */
 
 /* Best Seller Badge - Global Styles (All Pages) */
 .post-45410::before,
-.post-45402::before,
 .post-40219::before,
 .post-2812::before,
 .post-43888::before,
@@ -216,7 +210,6 @@ Parent container for products */
 .post-7043::before,
 .post-22803::before,
 .post-7318::before,
-.post-26081::before,
 .post-40746::before,
 .post-40733::before,
 .post-40736::before,
@@ -228,7 +221,7 @@ Parent container for products */
   font-weight: 800;
   position: absolute;
   left: 0;
-  top: 15px;
+  top: 10px;
   background: #c1d4bb;
   color: #28212b;
   padding: 15px 10px; /* Original padding */
@@ -252,7 +245,6 @@ Parent container for products */
 
 /* Individual Product Page Fix (No Size Changes) */
 body.single-product .post-45410::before,
-body.single-product .post-45402::before,
 body.single-product .post-40219::before,
 body.single-product .post-2812::before,
 body.single-product .post-43888::before,
@@ -274,7 +266,6 @@ body.single-product .post-27111::before,
 body.single-product .post-7043::before,
 body.single-product .post-22803::before,
 body.single-product .post-7318::before,
-body.single-product .post-26081::before,
 body.single-product .post-40746::before,
 body.single-product .post-40733::before,
 body.single-product .post-40736::before,
@@ -297,10 +288,10 @@ header#masthead,
 /*Best Seller Badge Starts 18%
 Parent container for products */
 .post-39036 .woocommerce-loop-product__link,
-.post-41727 .woocommerce-loop-product__link,
+.post-26081 .woocommerce-loop-product__link,
 .post-33666 .woocommerce-loop-product__link,
 .post-50877 .woocommerce-loop-product__link,
-.post-14406 .woocommerce-loop-product__link,
+.post-3057 .woocommerce-loop-product__link,
 .post-50874 .woocommerce-loop-product__link,
 .post-4945 .woocommerce-loop-product__link,
 .post-3054 .woocommerce-loop-product__link,
@@ -309,17 +300,16 @@ Parent container for products */
 .post-44509 .woocommerce-loop-product__link,
 .post-45384 .woocommerce-loop-product__link,
 .post-47506 .woocommerce-loop-product__link,
-.post-45406 .woocommerce-loop-product__link,
 .post-50871 .woocommerce-loop-product__link {
   position: relative;
   overflow: hidden;
 }
 /* Best Seller Badge - Global Styles (All Pages) */
 .post-39036::before,
-.post-41727::before,
+.post-26081::before,
 .post-33666::before,
 .post-50877::before,
-.post-14406::before,
+.post-3057::before,
 .post-50874::before,
 .post-4945::before,
 .post-3054::before,
@@ -328,13 +318,12 @@ Parent container for products */
 .post-44509::before,
 .post-45384::before,
 .post-47506::before,
-.post-45406::before,
 .post-50871::before {
   content: "18% OFF";
   font-weight: 800;
   position: absolute;
   left: 0;
-  top: 15px;
+  top: 10px;
   background: #c1d4bb;
   color: #28212b;
   padding: 15px 10px; /* Original padding */
@@ -357,10 +346,10 @@ Parent container for products */
 }
 /* Individual Product Page Fix (No Size Changes) */
 body.single-product .post-39036::before,
-body.single-product .post-41727::before,
+body.single-product .post-26081::before,
 body.single-product .post-33666::before,
 body.single-product .post-50877::before,
-body.single-product .post-14406::before,
+body.single-product .post-3057::before,
 body.single-product .post-50874::before,
 body.single-product .post-4945::before,
 body.single-product .post-3054::before,
@@ -369,7 +358,6 @@ body.single-product .post-44517::before,
 body.single-product .post-44509::before,
 body.single-product .post-45384::before,
 body.single-product .post-47506::before,
-body.single-product .post-45406::before,
 body.single-product .post-50871::before {
   left: -10px; /* Pull badge to the edge */
   transform: rotate(0deg) translateX(200px); /* Counteract negative left */
@@ -390,6 +378,7 @@ Parent container for products */
 .post-17379 .woocommerce-loop-product__link,
 .post-9499 .woocommerce-loop-product__link,
 .post-45390 .woocommerce-loop-product__link,
+.post-41727 .woocommerce-loop-product__link,
 .post-45388 .woocommerce-loop-product__link {
   position: relative;
   overflow: hidden;
@@ -398,14 +387,15 @@ Parent container for products */
 .post-41894::before,
 .post-8663::before,
 .post-17379::before,
+.post-41727::before,
 .post-9499::before,
 .post-45390::before,
 .post-45388::before {
-  content: "15% OFF";
+  content: "20% OFF";
   font-weight: 800;
   position: absolute;
   left: 0;
-  top: 15px;
+  top: 10px;
   background: #c1d4bb;
   color: #28212b;
   padding: 15px 10px; /* Original padding */
@@ -432,6 +422,7 @@ body.single-product .post-8663::before,
 body.single-product .post-17379::before,
 body.single-product .post-9499::before,
 body.single-product .post-45390::before,
+body.single-product .post-41727::before,
 body.single-product .post-45388::before {
   left: -10px; /* Pull badge to the edge */
   transform: rotate(0deg) translateX(200px); /* Counteract negative left */
@@ -451,7 +442,8 @@ Parent container for products */
 .post-45398 .woocommerce-loop-product__link,
 .post-45386 .woocommerce-loop-product__link,
 .post-40478 .woocommerce-loop-product__link,
-.post-13369 .woocommerce-loop-product__link,
+.post-45406 .woocommerce-loop-product__link,
+.post-45402 .woocommerce-loop-product__link,
 .post-40487 .woocommerce-loop-product__link {
   position: relative;
   overflow: hidden;
@@ -460,14 +452,15 @@ Parent container for products */
 .post-45400::before,
 .post-45398::before,
 .post-45386::before,
+.post-45406::before,
+.post-45402::before,
 .post-40478::before,
-.post-13369::before,
 .post-40487::before {
-  content: "15% OFF";
+  content: "25% OFF";
   font-weight: 800;
   position: absolute;
   left: 0;
-  top: 15px;
+  top: 10px;
   background: #c1d4bb;
   color: #28212b;
   padding: 15px 10px; /* Original padding */
@@ -493,7 +486,8 @@ body.single-product .post-45400::before,
 body.single-product .post-45398::before,
 body.single-product .post-45386::before,
 body.single-product .post-40478::before,
-body.single-product .post-13369::before,
+body.single-product .post-45406::before,
+body.single-product .post-45402::before,
 body.single-product .post-40487::before {
   left: -10px; /* Pull badge to the edge */
   transform: rotate(0deg) translateX(200px); /* Counteract negative left */

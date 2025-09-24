@@ -1,10 +1,13 @@
 <style>
   /* --- Google Font Import --- */
-  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap");
+  @import url("https://fonts.com/css2?family=Montserrat:wght@400;500;700;800&display=swap");
 
   /* --- CSS Variables --- */
   :root {
-    --banner-height: 100px; /* You can adjust this if needed */
+    --banner-min-height-desktop: 100px; /* Original desktop min-height */
+    --banner-min-height-mobile: 85px; /* Reduced min-height for mobile */
+    --banner-padding-desktop: 10px 40px; /* Original desktop padding */
+    --banner-padding-mobile: 10px 15px; /* Reduced mobile padding */
   }
 
   /* --- Sticky Banner Styles --- */
@@ -18,13 +21,16 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 10px 40px !important;
+    padding: var(--banner-padding-desktop) !important; /* Use variable */
     box-sizing: border-box !important;
     z-index: 1000 !important;
     font-family: "Montserrat", sans-serif;
     box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.4s ease-in-out, opacity 0.4s ease;
-    height: var(--banner-height); /* Set a fixed height or adjust padding */
+    min-height: var(
+      --banner-min-height-desktop
+    ); /* Use variable for desktop min-height */
+    height: auto; /* Allow height to adjust based on content */
   }
 
   .sticky-banner.hidden {
@@ -40,12 +46,14 @@
     gap: 20px;
     flex-wrap: wrap;
     width: 100%;
+    max-width: 1200px;
   }
 
   .banner-text-group {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    flex-shrink: 0;
   }
 
   .flash-sale-title {
@@ -54,6 +62,7 @@
     margin: 0;
     white-space: nowrap;
     line-height: 1.2;
+    text-align: left;
   }
 
   .flash-sale-title span {
@@ -69,12 +78,14 @@
     margin: 0;
     text-transform: uppercase;
     line-height: 1.2;
+    text-align: left;
   }
 
   .timer {
     display: flex;
     align-items: center;
     gap: 15px;
+    flex-shrink: 0;
   }
 
   .time-unit {
@@ -86,7 +97,7 @@
   .time-box {
     background-color: transparent;
     color: #ffffff;
-    font-size: 1.8rem;
+    font-size: 1.8rem; /* Default desktop size */
     font-weight: 800;
     line-height: 1;
     padding: 0;
@@ -120,25 +131,103 @@
   }
 
   /* --- Responsive Adjustments --- */
+  /* Tablet and larger phones */
   @media (max-width: 768px) {
     .sticky-banner {
-      padding: 15px 15px 15px 45px !important;
+      padding: var(
+        --banner-padding-mobile
+      ) !important; /* Use mobile padding variable */
+      min-height: var(
+        --banner-min-height-mobile
+      ); /* Use mobile min-height variable */
+      height: auto;
     }
+
     .banner-content-wrapper {
       flex-direction: column;
-      gap: 10px;
+      gap: 15px;
     }
+
     .banner-text-group {
       align-items: center;
+      text-align: center;
+    }
+
+    .flash-sale-title,
+    .discount-subtitle {
+      text-align: center;
+      white-space: normal;
+    }
+
+    .time-box {
+      font-size: 1.6rem; /* Slightly reduced from 1.8rem */
     }
   }
 
+  /* Smaller phones */
   @media (max-width: 480px) {
-    .time-box {
-      font-size: 1.5rem;
+    .sticky-banner {
+      padding: 8px 10px 8px 40px !important; /* Adjusted padding for very small */
+      min-height: 75px; /* Even smaller min-height for very small */
     }
+
+    .flash-sale-title {
+      font-size: 0.8rem;
+    }
+
+    .flash-sale-title span {
+      font-size: 1rem;
+    }
+
+    .discount-subtitle {
+      font-size: 0.65rem;
+    }
+
     .timer {
       gap: 10px;
+    }
+
+    .time-box {
+      font-size: 1.3rem; /* Reduced from 1.5rem */
+    }
+
+    .time-label {
+      font-size: 0.55rem;
+    }
+
+    .close-btn {
+      font-size: 20px !important;
+      left: 5px;
+    }
+  }
+
+  /* Even smaller screens (e.g., iPhone 5/SE, very narrow devices) */
+  @media (max-width: 375px) {
+    .sticky-banner {
+      padding: 5px 8px 5px 35px !important; /* Further reduced padding */
+      min-height: 65px; /* Further reduced min-height */
+    }
+    .flash-sale-title {
+      font-size: 0.7rem; /* Further reduced */
+    }
+    .flash-sale-title span {
+      font-size: 0.9rem;
+    }
+    .discount-subtitle {
+      font-size: 0.55rem; /* Further reduced */
+    }
+    .time-box {
+      font-size: 1.1rem; /* Further reduced */
+    }
+    .time-label {
+      font-size: 0.45rem; /* Further reduced */
+    }
+    .timer {
+      gap: 6px; /* Further reduced gap */
+    }
+    .close-btn {
+      font-size: 16px !important; /* Further reduced */
+      left: 3px;
     }
   }
 </style>
@@ -185,14 +274,21 @@
     if (closeBtn && banner) {
       closeBtn.addEventListener("click", () => {
         banner.classList.add("hidden");
+        // Optional: Store in localStorage to prevent showing again
+        localStorage.setItem("stickyBannerClosed", "true");
       });
+
+      // Optional: Check if banner was previously closed
+      if (localStorage.getItem("stickyBannerClosed") === "true") {
+        banner.classList.add("hidden");
+      }
     }
 
     // --- Countdown Timer Logic ---
 
     // MODIFICATION: Set a specific end date for your sale here.
     // FORMAT: YYYY/MM/DD HH:MM:SS
-    const saleEndDate = "2025/09/26 23:59:59"; // Example date
+    const saleEndDate = "2025/09/24 17:59:59"; // Example date
 
     // This line converts your date string into a timestamp the script can use.
     const countDownDate = new Date(saleEndDate).getTime();
@@ -210,8 +306,10 @@
         clearInterval(countdownFunction);
         const wrapper = document.querySelector(".banner-content-wrapper");
         if (wrapper) {
-          wrapper.innerHTML = "<p class='flash-sale-title'>SALE EXPIRED</p>";
+          wrapper.innerHTML =
+            "<p class='flash-sale-title' style='text-align:center; width:100%;'>SALE EXPIRED</p>";
           wrapper.style.justifyContent = "center";
+          wrapper.style.flexDirection = "row"; // Reset flex-direction if it was column
         }
         return;
       }
