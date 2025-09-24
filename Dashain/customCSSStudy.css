@@ -1,0 +1,251 @@
+/* .variations_form .variations label {
+	float:left;
+} */
+
+.woocommerce .quantity .qty {
+  margin-left: 0px !important;
+}
+
+.woocommerce form .button.single_add_to_cart_button {
+  margin-top: 10px !important;
+}
+
+.social-profile-custom li {
+  float: left;
+  margin-right: 10px;
+}
+.social-profile-custom span {
+  width: 25px;
+  height: 25px;
+}
+
+#text-27 {
+  clear: both;
+  padding-top: 25px;
+}
+
+.ast-menu-cart-outline .ast-addon-cart-wrap {
+  border: 0px !important;
+}
+
+.nsl-container-buttons a {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.ast-above-header-section,
+.above-header-widget {
+  width: 100% !important;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+#text-25 {
+  float: left;
+  width: 45%;
+  margin-top: 3px !important;
+  margin-bottom: 3px !important;
+}
+.dgwt-wcas-ico-magnifier,
+.dgwt-wcas-ico-magnifier-handler {
+  max-width: 18px !important;
+}
+#menu-item-13287 {
+  margin-right: 7px !important;
+}
+li.ast-masthead-custom-menu-items {
+  padding-left: 5px !important;
+}
+@media only screen and (max-width: 980px) {
+  .dgwt-wcas-search-wrapp {
+    max-width: 100% !important;
+    margin: 20px 20px 0px;
+  }
+}
+#dgwt_wcas_ajax_search-3 {
+  margin-bottom: 20px !important;
+}
+#block-13 a {
+  color: #282110;
+  text-decoration: underline;
+}
+#block-13 {
+  float: right;
+  text-align: right;
+  margin-top: 3px !important;
+  margin-bottom: 3px !important;
+}
+
+@media only screen and (max-width: 940px) {
+  #text-25 {
+    display: none;
+  }
+  #text-26 {
+    float: none;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.ast-below-header {
+  background: #e8c378 !important;
+}
+
+#text-27 {
+  font-size: 14px;
+  color: #282110;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.ast-woocommerce-container {
+  padding-top: 50px !important;
+}
+.ast-desktop .ast-mega-menu-enabled {
+  display: inherit !important;
+}
+
+@media all and (max-width: 980px) {
+  /*** wrap row in a flex box ***/
+  .custom_row {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+    flex-wrap: wrap;
+  }
+
+  /*** custom classes that will designate the order of columns in the flex box row ***/
+  .first-on-mobile {
+    -webkit-order: 1;
+    order: 1;
+  }
+
+  .second-on-mobile {
+    -webkit-order: 2;
+    order: 2;
+  }
+
+  .third-on-mobile {
+    -webkit-order: 3;
+    order: 3;
+  }
+
+  .fourth-on-mobile {
+    -webkit-order: 4;
+    order: 4;
+  }
+  /*** add margin to last column ***/
+  .custom_row:last-child .et_pb_column:last-child {
+    margin-bottom: 30px;
+  }
+}
+
+.single-product .comment-full-width {
+  padding: 0 !important;
+}
+
+.footer-adv-layout-4 .ast-container {
+  padding-left: 5% !important;
+  padding-right: 5% !important;
+}
+
+.main-header-container .ast-site-identity {
+  margin-left: 60px !important;
+}
+
+.ast-above-header .ast-container {
+  padding-left: 1% !important;
+  padding-right: 1% !important;
+  max-width: 1200px !important;
+}
+
+.sidebar-main .menu-type-container li {
+  margin-bottom: 0px !important;
+}
+
+.sidebar-main #nav_menu-12,
+.sidebar-main #nav_menu-14,
+.sidebar-main #custom_html-6 {
+  margin-bottom: 20px !important;
+}
+
+.sidebar-main .cr-badge {
+  padding: 0px !important;
+}
+
+@media only screen and (max-width: 980px),
+  only screen and (max-device-width: 980px) {
+  .kn-img-menu-mobile ul.sub-menu {
+    display: block !important;
+  }
+}
+.ast-desktop
+  .ast-mega-menu-enabled
+  .menu-item-has-children.astra-megamenu-li.menu-item
+  .astra-megamenu.sub-menu
+  .menu-item.menu-item-40345
+  > .menu-link::after,
+.ast-desktop
+  .ast-mega-menu-enabled
+  .menu-item-has-children.astra-megamenu-li.menu-item
+  .astra-megamenu.sub-menu
+  .menu-item.menu-item-40345
+  > .menu-link::before {
+  content: url("https://kajalnaina.com/wp-content/uploads/2024/05/ribbonicon.png");
+  vertical-align: -4px;
+}
+.ast-desktop
+  .ast-mega-menu-enabled
+  .menu-item-has-children.astra-megamenu-li.menu-item
+  .astra-megamenu.sub-menu
+  .menu-item.menu-item-40345
+  > .menu-link::before {
+  margin-right: 5px;
+}
+.ast-desktop
+  .ast-mega-menu-enabled
+  .menu-item-has-children.astra-megamenu-li.menu-item
+  .astra-megamenu.sub-menu
+  .menu-item.menu-item-40345
+  > .menu-link::after {
+  margin-left: 5px;
+}
+
+/* Hide default arrow icons */
+.flex-prev::before,
+.flex-next::before {
+  content: none !important; /* safer than display: none */
+  background: none !important;
+}
+/* Base styles for both arrows */
+.flex-prev,
+.flex-next {
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: block !important;
+  opacity: 1 !important;
+  transition: transform 0.3s ease, opacity 0.3s ease; /* smooth animation */
+}
+
+/* Custom icons */
+.flex-prev {
+  background-image: url("https://staging.kajalnaina.com/wp-content/uploads/2025/09/Arrow11.png") !important;
+}
+
+.flex-next {
+  background-image: url("https://staging.kajalnaina.com/wp-content/uploads/2025/09/Arrow21.png") !important;
+  /* rotated */
+}
+
+/* Hover animation */
+.flex-prev:hover,
+.flex-next:hover {
+  transform: scale(1.2) rotate(90deg); /* slight zoom + vertical orientation */
+  opacity: 0.8; /* subtle fade effect */
+}

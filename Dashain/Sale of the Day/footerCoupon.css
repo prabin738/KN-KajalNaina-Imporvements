@@ -38,6 +38,8 @@ body::after {
  * and change the display property from 'none' to 'block'.
 */
 body.postid-45408::after,
+body.postid-50935::after,
+body.postid-50969::after,
 body.postid-45556::after,
 body.postid-45402::after,
 body.postid-45394::after,
@@ -99,7 +101,7 @@ body.postid-7946::after,
 body.postid-27111::after,
 body.postid-7043::after,
 body.postid-22803::after,
-body.postid-7318::after,
+/* body.postid-7318::after, */
 body.postid-40746::after,
 body.postid-40733::after,
 body.postid-40736::after,
@@ -128,6 +130,7 @@ body.postid-44517::after,
 body.postid-44509::after,
 body.postid-45384::after,
 body.postid-47506::after,
+body.postid-7318::after,
 body.postid-3057::after,
 body.postid-45406::after,
 body.postid-50871::after,
@@ -140,9 +143,10 @@ body.postid-26081::after {
  * 20% Off Banner Specific Pages (DTC20)
  * IMPORTANT: Add your unique post IDs for the 20% off banner here.
 */
-body.postid-41894::after,
+
 body.postid-8663::after,
 body.postid-17379::after,
+body.postid-50965::after,
 body.postid-9499::after,
 body.postid-45390::after,
 body.postid-45388::after,

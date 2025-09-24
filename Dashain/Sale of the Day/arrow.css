@@ -1,0 +1,22 @@
+/* Replace with your custom PNG icon */
+.flex-prev {
+  background-image: url("https://staging.kajalnaina.com/wp-content/uploads/2025/09/next.png") !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: block !important;
+  opacity: 1 !important;
+}
+
+.flex-next {
+  background-image: url("https://staging.kajalnaina.com/wp-content/uploads/2025/09/prev.png") !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: block !important;
+  opacity: 1 !important;
+}

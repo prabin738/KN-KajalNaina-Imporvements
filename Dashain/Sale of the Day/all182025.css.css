@@ -26,6 +26,7 @@ Parent container for products */
 .post-46160 .woocommerce-loop-product__link,
 .post-50694 .woocommerce-loop-product__link,
 .post-44507 .woocommerce-loop-product__link,
+.post-50969 .woocommerce-loop-product__link,
 .post-44533 .woocommerce-loop-product__link,
 .post-44525 .woocommerce-loop-product__link,
 .post-18411 .woocommerce-loop-product__link,
@@ -48,7 +49,7 @@ Parent container for products */
 .post-45396::before,
 .post-8822::before,
 .post-22954::before,
-.post-22954::before,
+.post-50969::before,
 .post-33366::before,
 .post-50684::before,
 .post-34501::before,
@@ -112,7 +113,7 @@ body.single-product .post-45394::before,
 body.single-product .post-45396::before,
 body.single-product .post-8822::before,
 body.single-product .post-22954::before,
-body.single-product .post-22954::before,
+body.single-product .post-50969::before,
 body.single-product .post-33366::before,
 body.single-product .post-50684::before,
 body.single-product .post-34501::before,
@@ -175,7 +176,6 @@ Parent container for products */
 .post-27111 .woocommerce-loop-product__link,
 .post-7043 .woocommerce-loop-product__link,
 .post-22803 .woocommerce-loop-product__link,
-.post-7318 .woocommerce-loop-product__link,
 .post-40746 .woocommerce-loop-product__link,
 .post-40733 .woocommerce-loop-product__link,
 .post-40736 .woocommerce-loop-product__link,
@@ -209,7 +209,6 @@ Parent container for products */
 .post-27111::before,
 .post-7043::before,
 .post-22803::before,
-.post-7318::before,
 .post-40746::before,
 .post-40733::before,
 .post-40736::before,
@@ -265,7 +264,6 @@ body.single-product .post-7946::before,
 body.single-product .post-27111::before,
 body.single-product .post-7043::before,
 body.single-product .post-22803::before,
-body.single-product .post-7318::before,
 body.single-product .post-40746::before,
 body.single-product .post-40733::before,
 body.single-product .post-40736::before,
@@ -298,6 +296,7 @@ Parent container for products */
 .post-44676 .woocommerce-loop-product__link,
 .post-44517 .woocommerce-loop-product__link,
 .post-44509 .woocommerce-loop-product__link,
+.post-7318 .woocommerce-loop-product__link,
 .post-45384 .woocommerce-loop-product__link,
 .post-47506 .woocommerce-loop-product__link,
 .post-50871 .woocommerce-loop-product__link {
@@ -308,6 +307,7 @@ Parent container for products */
 .post-39036::before,
 .post-26081::before,
 .post-33666::before,
+.post-7318::before,
 .post-50877::before,
 .post-3057::before,
 .post-50874::before,
@@ -347,6 +347,7 @@ Parent container for products */
 /* Individual Product Page Fix (No Size Changes) */
 body.single-product .post-39036::before,
 body.single-product .post-26081::before,
+body.single-product .post-7318::before,
 body.single-product .post-33666::before,
 body.single-product .post-50877::before,
 body.single-product .post-3057::before,
@@ -373,19 +374,21 @@ header#masthead,
 
 /*Best Seller Badge Starts 20%
 Parent container for products */
-.post-41894 .woocommerce-loop-product__link,
+
 .post-8663 .woocommerce-loop-product__link,
 .post-17379 .woocommerce-loop-product__link,
 .post-9499 .woocommerce-loop-product__link,
 .post-45390 .woocommerce-loop-product__link,
+.post-50965 .woocommerce-loop-product__link,
 .post-41727 .woocommerce-loop-product__link,
 .post-45388 .woocommerce-loop-product__link {
   position: relative;
   overflow: hidden;
 }
 /* Best Seller Badge - Global Styles (All Pages) */
-.post-41894::before,
+
 .post-8663::before,
+.post-50965::before,
 .post-17379::before,
 .post-41727::before,
 .post-9499::before,
@@ -417,9 +420,10 @@ Parent container for products */
   }
 }
 /* Individual Product Page Fix (No Size Changes) */
-body.single-product .post-41894::before,
+
 body.single-product .post-8663::before,
 body.single-product .post-17379::before,
+body.single-product .post-50965::before,
 body.single-product .post-9499::before,
 body.single-product .post-45390::before,
 body.single-product .post-41727::before,
