@@ -101,23 +101,13 @@ body.postid-7946::after,
 body.postid-27111::after,
 body.postid-7043::after,
 body.postid-22803::after,
-/* body.postid-7318::after, */
 body.postid-40746::after,
 body.postid-40733::after,
 body.postid-40736::after,
 body.postid-40739::after,
 body.postid-41837::after,
 body.postid-40725::after,
-body.postid-40726::after {
-  --banner-content: "Use Coupon: DTC15 for 15% off";
-  display: block !important;
-}
-
-/* 
- * 18% Off Banner Specific Pages (DTC18)
- * IMPORTANT: Add your unique post IDs for the 18% off banner here.
- * If you use the same post IDs as other banners, only the last defined rule will apply.
-*/
+body.postid-40726::after,
 body.postid-39036::after,
 body.postid-33666::after,
 body.postid-50877::after,
@@ -134,31 +124,14 @@ body.postid-7318::after,
 body.postid-3057::after,
 body.postid-45406::after,
 body.postid-50871::after,
-body.postid-26081::after {
-  --banner-content: "Use Coupon: DTC18 for 18% off";
-  display: block !important;
-}
-
-/* 
- * 20% Off Banner Specific Pages (DTC20)
- * IMPORTANT: Add your unique post IDs for the 20% off banner here.
-*/
-
+body.postid-26081::after,
 body.postid-8663::after,
 body.postid-17379::after,
 body.postid-50965::after,
 body.postid-9499::after,
 body.postid-45390::after,
 body.postid-45388::after,
-body.postid-41727::after {
-  --banner-content: "Use Coupon: DTC20 for 20% off";
-  display: block !important;
-}
-
-/* 
- * 25% Off Banner Specific Pages (DTC25)
- * IMPORTANT: Add your unique post IDs for the 25% off banner here.
-*/
+body.postid-41727::after,
 body.postid-45400::after,
 body.postid-45398::after,
 body.postid-45386::after,
@@ -166,8 +139,11 @@ body.postid-45406::after,
 body.postid-45402::after,
 body.postid-40478::after,
 body.postid-13369::after,
-body.postid-40487::after {
-  --banner-content: "Use Coupon: DTC25 for 25% off";
+body.postid-40487::after,
+body.postid-50240::after,
+body.postid-50242::after,
+body.postid-50244::after {
+  --banner-content: "Use Coupon: DTC15 for 15% off";
   display: block !important;
 }
 
